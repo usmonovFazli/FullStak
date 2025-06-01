@@ -24,20 +24,6 @@ app.use('/api/messages', require('./routes/messageRoutes'));
 app.use('/api/admin', require('./routes/adminRoutes'));
 
 
-chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
-  (async () => {
-    try {
-      const data = await fetchData();
-      sendResponse({ success: true, data });
-    } catch (err) {
-      sendResponse({ success: false, error: err.message });
-    }
-  })();
-
-  return true; // обязательно!
-});
-
-
 // Запуск сервера
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
