@@ -3,7 +3,7 @@ const Message = require('../models/message');
 
 const sendMessage = async (req, res) => {
   const { senderId, receiverId, message } = req.body;
-  const imagePath = req.file ? '/' + req.file.path.replace('\\', '/') : null;
+  const imagePath = req.file ? '/uploads/' + req.file.filename : null;
 
   const newMessage = new Message({
     sender_id: senderId,
