@@ -1,0 +1,977 @@
+/* ============================================= */
+/* GLOBAL STYLES (Oldingi so'rovlardan)       */
+/* ============================================= */
+:root {
+    --main-color: #018abe;
+    --hover-main-color: #00689c;
+    --sidebar-bg: #2c3e50; /* Yon panel foni (to'qroq) */
+    --sidebar-text-color: #ecf0f1;
+    --sidebar-active-bg: var(--main-color);
+    --sidebar-active-text: #ffffff;
+    --sidebar-hover-bg: #34495e;
+    --header-bg: #ffffff;
+    --content-bg: #f4f7f6; /* Asosiy kontent foni (och kulrang) */
+    --text-color-dark: #333333;
+    --text-color-light: #777777;
+    --border-color: #e0e0e0;
+    --card-bg: #ffffff;
+    --shadow-light: 0 1px 3px rgba(0, 0, 0, 0.1);
+    --shadow-medium: 0 4px 10px rgba(0, 0, 0, 0.08);
+  }
+  
+  /* Roboto shriftlari uchun @font-face (agar oldin qo'shmagan bo'lsangiz) */
+  /* ... (Roboto @font-face qoidalari shu yerga) ... */
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: "Roboto", sans-serif;
+    background-color: var(--content-bg); /* Yoki gradientli fon: */
+    /* background-image: url('./10213743373388220233.png'); */
+    /* background-size: cover; background-position: center; background-attachment: fixed; */
+    color: var(--text-color-dark);
+    line-height: 1.6;
+  }
+  
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  ul {
+    list-style: none;
+  }
+  
+  /* ============================================= */
+  /* ADMIN PANEL STYLES                         */
+  /* ============================================= */
+  .admin-panel {
+      display: flex;
+      min-height: 100vh;
+  }
+  
+  /* Sidebar */
+  .admin-sidebar {
+      width: 260px;
+      background-color: var(--sidebar-bg);
+      color: var(--sidebar-text-color);
+      display: flex;
+      flex-direction: column;
+      position: fixed; /* Yoki sticky, agar headerdan pastda bo'lsa */
+      top: 0;
+      left: 0;
+      height: 100%;
+      transition: width 0.3s ease;
+      z-index: 1000;
+  }
+  
+  .sidebar-logo {
+      padding: 20px 25px;
+      text-align: center;
+      border-bottom: 1px solid var(--sidebar-hover-bg);
+  }
+  
+  .sidebar-logo a {
+      font-size: 1.8em;
+      font-weight: 700;
+      color: #fff; /* Yoki --main-color */
+  }
+  /* Agar logo rasm bo'lsa:
+  .sidebar-logo img {
+      max-width: 80%;
+      height: auto;
+  }
+  */
+  
+  .sidebar-nav ul {
+      margin-top: 20px;
+  }
+  
+  .sidebar-nav .nav-item {
+      margin: 5px 0;
+  }
+  
+  .sidebar-nav .nav-link {
+      display: flex;
+      align-items: center;
+      padding: 12px 25px;
+      color: var(--sidebar-text-color);
+      transition: background-color 0.3s ease, color 0.3s ease;
+      border-left: 4px solid transparent; /* Aktiv holat uchun chap chegara */
+  }
+  
+  .sidebar-nav .nav-link:hover {
+      background-color: var(--sidebar-hover-bg);
+      color: #fff;
+  }
+  
+  .sidebar-nav .nav-item.active .nav-link {
+      background-color: var(--sidebar-active-bg);
+      color: var(--sidebar-active-text);
+      font-weight: 500;
+      border-left-color: #fff; /* Yoki --sidebar-active-text */
+  }
+  
+  .nav-icon {
+      width: 20px; /* Ikonka uchun ajratilgan joy */
+      margin-right: 15px;
+      font-size: 1.1em;
+      text-align: center;
+  }
+  
+  .nav-text {
+      white-space: nowrap; /* Sidebar kichrayganda matn yashirinishi uchun */
+      opacity: 1;
+      transition: opacity 0.3s ease;
+  }
+  
+  /* Main Content Area */
+  .admin-main-content {
+      flex-grow: 1;
+      margin-left: 260px; /* Sidebar kengligiga mos */
+      background-color: var(--content-bg);
+      display: flex;
+      flex-direction: column;
+      transition: margin-left 0.3s ease;
+  }
+  
+  /* Header */
+  .admin-header {
+      background-color: var(--header-bg);
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: var(--shadow-light);
+      position: sticky; /* Yuqorida qotib qolishi uchun */
+      top: 0;
+      z-index: 999;
+  }
+  
+  .header-left {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+  }
+  
+  .sidebar-toggle-btn {
+      background: none;
+      border: none;
+      font-size: 1.5em;
+      color: var(--text-color-dark);
+      cursor: pointer;
+  }
+  
+  .header-search {
+      display: flex;
+      align-items: center;
+      background-color: #f0f0f0; /* Qidiruv maydoni foni */
+      border-radius: 20px;
+      padding: 0 5px 0 0; /* O'ng tomonda padding yo'q, tugma uchun */
+  }
+  .search-filter-dropdown {
+      position: relative;
+  }
+  .filter-btn {
+      background-color: transparent;
+      border: none;
+      padding: 8px 12px;
+      cursor: pointer;
+      color: var(--text-color-light);
+      font-size: 0.9em;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      border-right: 1px solid #ddd;
+  }
+  .filter-btn i {
+      font-size: 0.7em;
+  }
+  
+  .header-search input[type="text"] {
+      border: none;
+      background: transparent;
+      padding: 8px 12px;
+      outline: none;
+      color: var(--text-color-dark);
+      min-width: 250px; /* Qidiruv maydoni minimal kengligi */
+  }
+  
+  .search-btn {
+      background-color: var(--main-color);
+      color: #fff;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 0 20px 20px 0;
+      cursor: pointer;
+  }
+  .search-btn:hover {
+      background-color: var(--hover-main-color);
+  }
+  
+  
+  .header-right {
+      display: flex;
+      align-items: center;
+  }
+  
+  .user-profile {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      padding: 5px;
+      border-radius: 5px;
+      transition: background-color 0.2s ease;
+  }
+  .user-profile:hover {
+      background-color: #f0f0f0;
+  }
+  
+  .user-avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      margin-right: 10px;
+      object-fit: cover;
+  }
+  
+  .user-name {
+      font-weight: 500;
+      margin-right: 5px;
+      color: var(--text-color-dark);
+  }
+  
+  .user-profile .fa-chevron-down {
+      font-size: 0.8em;
+      color: var(--text-color-light);
+  }
+  
+  /* Content Area */
+  .content-area {
+      padding: 30px;
+      flex-grow: 1; /* Pastki qismgacha cho'zilishi uchun */
+  }
+  
+  .stats-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+  }
+  
+  .stat-card {
+      background-color: var(--card-bg);
+      padding: 25px;
+      border-radius: 8px;
+      box-shadow: var(--shadow-medium);
+      display: flex;
+      align-items: center;
+      gap: 20px;
+  }
+  
+  .stat-card-icon {
+      font-size: 2.5em;
+      padding: 15px;
+      border-radius: 50%;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 70px;
+      height: 70px;
+  }
+  .stat-card-icon.users { background-color: #3498db; } /* Ko'k */
+  .stat-card-icon.online-users { background-color: #2ecc71; } /* Yashil */
+  .stat-card-icon.specialists { background-color: #e74c3c; } /* Qizil */
+  
+  .stat-card-info p {
+      font-size: 0.95em;
+      color: var(--text-color-light);
+      margin-bottom: 5px;
+  }
+  .stat-card-info span {
+      font-size: 1.8em;
+      font-weight: 700;
+      color: var(--text-color-dark);
+  }
+  
+  /* Sidebar kichraytirilgan holati uchun (JavaScript bilan .collapsed klassi qo'shiladi) */
+  .admin-sidebar.collapsed {
+      width: 80px;
+  }
+  .admin-sidebar.collapsed .sidebar-logo a {
+      font-size: 1.2em; /* Yoki faqat ikonkali logo */
+  }
+  .admin-sidebar.collapsed .sidebar-logo {
+      padding: 20px 0;
+  }
+  .admin-sidebar.collapsed .nav-text {
+      opacity: 0;
+      width: 0;
+      overflow: hidden;
+  }
+  .admin-sidebar.collapsed .nav-link {
+      justify-content: center;
+      padding: 12px 10px;
+  }
+  .admin-sidebar.collapsed .nav-icon {
+      margin-right: 0;
+  }
+  
+  .admin-main-content.sidebar-collapsed {
+      margin-left: 80px;
+  }
+  
+  
+  /* Moslashuvchanlik (Responsive) */
+  @media (max-width: 992px) {
+      .admin-sidebar {
+          width: 220px;
+      }
+      .admin-main-content {
+          margin-left: 220px;
+      }
+      .admin-sidebar.collapsed {
+          width: 0; /* Mobil qurilmalarda butunlay yashirish */
+          overflow: hidden;
+      }
+      .admin-main-content.sidebar-collapsed {
+          margin-left: 0;
+      }
+      .header-search input[type="text"] {
+          min-width: 150px;
+      }
+  }
+  
+  @media (max-width: 768px) {
+      .admin-sidebar { /* Boshida yashirin */
+          width: 0;
+          overflow: hidden;
+      }
+      .admin-main-content {
+          margin-left: 0;
+      }
+      .admin-sidebar.collapsed { /* Mobil toggle uchun */
+           /* Bu holatda .collapsed klassi ochiq degani */
+          width: 220px;
+      }
+       .admin-main-content.sidebar-collapsed {
+          /* Bu holatda sidebar ochiq bo'lsa, kontent surilmaydi (overlay effekti) */
+          /* Yoki margin-left: 220px; agar surilishi kerak bo'lsa */
+      }
+  
+      .header-search .filter-btn {
+          display: none; /* Filtrni yashirish */
+      }
+      .header-search input[type="text"] {
+          min-width: auto;
+          flex-grow: 1;
+      }
+      .header-search {
+          flex-grow: 1;
+          margin: 0 15px;
+      }
+      .user-name {
+          display: none; /* Mobil qurilmada foydalanuvchi nomini yashirish */
+      }
+       .user-profile .fa-chevron-down {
+          display: none; /* Mobil qurilmada strelkani yashirish */
+      }
+      .stats-cards-grid {
+          grid-template-columns: 1fr; /* Kartalarni bitta ustunga joylashtirish */
+      }
+  }
+
+
+  /* ============================================= */
+/* USERS SECTION STYLES (Foydalanuvchilar)    */
+/* ============================================= */
+
+/* .content-area uchun umumiy stillar (agar oldin bo'lmasa) */
+.content-area {
+    padding: 30px;
+    flex-grow: 1;
+}
+
+.content-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border-color, #e0e0e0);
+}
+
+.content-header h1 {
+    font-size: 1.8em; /* Asosiy sarlavha o'lchami */
+    color: var(--text-color-dark, #333);
+    font-weight: 600;
+}
+
+.btn-add-user {
+    background-color: var(--main-color, #018abe);
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 0.95em;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: inline-flex; /* Ikonka bilan matnni to'g'ri joylash uchun */
+    align-items: center;
+    gap: 8px; /* Ikonka va matn orasidagi masofa */
+}
+
+.btn-add-user:hover {
+    background-color: var(--hover-main-color, #00689c);
+}
+
+.filters-and-search {
+    margin-bottom: 25px;
+    display: flex;
+    gap: 15px;
+}
+
+.search-users {
+    padding: 10px 15px;
+    border: 1px solid var(--border-color, #e0e0e0);
+    border-radius: 5px;
+    font-size: 0.95em;
+    width: 100%;
+    max-width: 350px; /* Qidiruv maydoni maksimal kengligi */
+}
+.search-users:focus {
+    outline: none;
+    border-color: var(--main-color, #018abe);
+    box-shadow: 0 0 0 2px rgba(1, 138, 190, 0.2);
+}
+
+
+.users-table-container {
+    background-color: var(--card-bg, #fff);
+    border-radius: 8px;
+    box-shadow: var(--shadow-medium, 0 4px 10px rgba(0,0,0,0.08));
+    overflow-x: auto; /* Kichik ekranlarda gorizontal scroll */
+}
+
+.users-table {
+    width: 100%;
+    border-collapse: collapse; /* Chegaralarni birlashtirish */
+}
+
+.users-table th,
+.users-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color, #e0e0e0);
+    font-size: 0.95em;
+}
+
+.users-table th {
+    background-color: #f8f9fa; /* Sarlavha qatori foni */
+    color: var(--text-color-dark, #333);
+    font-weight: 600;
+    white-space: nowrap; /* Sarlavhalar bir qatorda turishi uchun */
+}
+
+.users-table tbody tr:hover {
+    background-color: #f1f1f1; /* Hoverda qator foni */
+}
+
+.users-table .role,
+.users-table .status {
+    padding: 4px 8px;
+    border-radius: 15px; /* Yumaloqroq chegara */
+    font-size: 0.8em;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.users-table .role.admin { background-color: #e74c3c; color: white; }
+.users-table .role.editor { background-color: #f39c12; color: white; }
+.users-table .role.user { background-color: #3498db; color: white; }
+
+.users-table .status.active { background-color: #2ecc71; color: white; }
+.users-table .status.inactive { background-color: #95a5a6; color: white; }
+
+.users-table .actions {
+    text-align: center; /* Amallar ikonkalarini markazga */
+    white-space: nowrap;
+}
+
+.btn-action {
+    background: none;
+    border: none;
+    color: var(--text-color-light, #777);
+    cursor: pointer;
+    font-size: 1.1em;
+    padding: 5px 8px;
+    margin: 0 3px;
+    transition: color 0.2s ease;
+}
+
+.btn-action.btn-edit:hover {
+    color: var(--main-color, #018abe);
+}
+
+.btn-action.btn-delete:hover {
+    color: #e74c3c; /* Qizil rang */
+}
+
+.pagination {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center; /* Sahifalashni markazga */
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-pagination {
+    background-color: var(--card-bg, #fff);
+    border: 1px solid var(--border-color, #e0e0e0);
+    color: var(--text-color-dark, #333);
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.btn-pagination:hover:not([disabled]):not(.active) {
+    background-color: #f0f0f0;
+}
+
+.btn-pagination.active {
+    background-color: var(--main-color, #018abe);
+    color: #fff;
+    border-color: var(--main-color, #018abe);
+}
+
+.btn-pagination[disabled] {
+    color: #aaa;
+    cursor: not-allowed;
+    background-color: #f9f9f9;
+}
+
+/* Moslashuvchanlik (Responsiveness) */
+@media (max-width: 768px) {
+    .content-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+    .content-header h1 {
+        font-size: 1.6em;
+    }
+    .btn-add-user {
+        width: 100%; /* Mobil qurilmada tugma to'liq kenglikda */
+        justify-content: center;
+    }
+    .filters-and-search .search-users {
+        max-width: none; /* Mobil qurilmada qidiruv maydoni to'liq kenglikda */
+    }
+    .users-table th,
+    .users-table td {
+        font-size: 0.9em;
+        padding: 10px 8px;
+    }
+}
+
+
+/* ============================================= */
+/* PRODUCTS SECTION STYLES (Maxsulotlar)      */
+/* ============================================= */
+
+/* .content-header, .filters-and-search, .pagination stillari 
+   .users-table-container bilan o'xshash bo'lgani uchun 
+   ularni qayta yozish shart emas, agar umumiy klasslar ishlatilsa.
+   Agar alohida stil kerak bo'lsa, quyidagicha yozishingiz mumkin.
+   Men umumiy .content-header stilidan foydalanishni nazarda tutyapman.
+*/
+
+.btn-add-product { /* .btn-add-user ga o'xshash */
+    background-color: var(--main-color, #018abe);
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 0.95em;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-add-product:hover {
+    background-color: var(--hover-main-color, #00689c);
+}
+
+.search-products,
+.filter-category { /* .search-users ga o'xshash */
+    padding: 10px 15px;
+    border: 1px solid var(--border-color, #e0e0e0);
+    border-radius: 5px;
+    font-size: 0.95em;
+    /* width: 100%; Agar .filters-and-search flex bo'lsa */
+}
+.search-products {
+    flex-grow: 1; /* Qidiruv maydoni ko'proq joy egallasin */
+    max-width: 350px;
+}
+.filter-category {
+    min-width: 200px; /* Kategoriya filtri minimal kengligi */
+}
+
+.search-products:focus,
+.filter-category:focus {
+    outline: none;
+    border-color: var(--main-color, #018abe);
+    box-shadow: 0 0 0 2px rgba(1, 138, 190, 0.2);
+}
+
+
+.products-table-container { /* .users-table-container ga o'xshash */
+    background-color: var(--card-bg, #fff);
+    border-radius: 8px;
+    box-shadow: var(--shadow-medium, 0 4px 10px rgba(0,0,0,0.08));
+    overflow-x: auto; /* Kichik ekranlarda gorizontal scroll */
+    margin-top: 25px; /* Filtrlar va jadval orasidagi masofa */
+}
+
+.products-table { /* .users-table ga o'xshash */
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.products-table th,
+.products-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color, #e0e0e0);
+    font-size: 0.95em;
+    vertical-align: middle; /* Kontentni vertikal o'rtaga tekislash */
+}
+
+.products-table th {
+    background-color: #f8f9fa;
+    color: var(--text-color-dark, #333);
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.products-table tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+.product-thumbnail {
+    width: 50px;
+    height: 50px;
+    object-fit: cover; /* Rasm o'lchamini saqlagan holda joylash */
+    border-radius: 4px;
+    border: 1px solid var(--border-color, #e0e0e0);
+}
+
+.products-table .status { /* .users-table .status ga o'xshash */
+    padding: 4px 8px;
+    border-radius: 15px;
+    font-size: 0.8em;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.products-table .status.in-stock { background-color: #2ecc71; color: white; } /* Sotuvda */
+.products-table .status.low-stock { background-color: #f39c12; color: white; } /* Kam qolgan */
+.products-table .status.out-of-stock { background-color: #e74c3c; color: white; } /* Tugagan */
+
+
+/* .actions va .btn-action stillari .users-table bilan bir xil bo'lishi mumkin */
+/* Agar alohida bo'lishi kerak bo'lsa, .products-table .actions ... qilib yozing */
+.products-table .actions {
+    text-align: center;
+    white-space: nowrap;
+}
+
+/* Pagination stillari ham umumiy bo'lishi mumkin */
+
+/* Moslashuvchanlik (Maxsulotlar jadvali uchun qo'shimcha) */
+@media (max-width: 768px) {
+    .filters-and-search {
+        flex-direction: column; /* Mobil qurilmada filtrlar ustma-ust */
+    }
+    .search-products,
+    .filter-category {
+        max-width: none; /* Mobil qurilmada to'liq kenglik */
+        width: 100%;
+    }
+    .products-table th,
+    .products-table td {
+        font-size: 0.9em;
+        padding: 10px 8px;
+    }
+    .product-thumbnail {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+
+/* ============================================= */
+/* REQUESTS SECTION STYLES (So'rovlar)         */
+/* ============================================= */
+
+/* .content-header, .filters-and-search, .pagination, .actions, .btn-action
+   stillari avvalgi bo'limlar bilan o'xshash bo'lishi mumkin.
+   Agar ularga umumiy klasslar berilgan bo'lsa (masalan, .common-table),
+   ularni qayta yozish shart emas. */
+
+   .search-requests, /* .search-products yoki .search-users ga o'xshash */
+   .filter-status,
+   .filter-priority {
+       padding: 10px 15px;
+       border: 1px solid var(--border-color, #e0e0e0);
+       border-radius: 5px;
+       font-size: 0.95em;
+       min-width: 180px; /* Filtrlar uchun minimal kenglik */
+   }
+   
+   .search-requests {
+       flex-grow: 1;
+       max-width: 400px;
+   }
+   
+   .search-requests:focus,
+   .filter-status:focus,
+   .filter-priority:focus {
+       outline: none;
+       border-color: var(--main-color, #018abe);
+       box-shadow: 0 0 0 2px rgba(1, 138, 190, 0.2);
+   }
+   
+   .requests-table-container { /* .users-table-container yoki .products-table-container ga o'xshash */
+       background-color: var(--card-bg, #fff);
+       border-radius: 8px;
+       box-shadow: var(--shadow-medium, 0 4px 10px rgba(0,0,0,0.08));
+       overflow-x: auto; /* Kichik ekranlarda gorizontal scroll */
+       margin-top: 25px;
+   }
+   
+   /* Agar jadvallar uchun umumiy klass bo'lmasa, .requests-table uchun stillar: */
+   .requests-table {
+       width: 100%;
+       border-collapse: collapse;
+   }
+   
+   .requests-table th,
+   .requests-table td {
+       padding: 12px 15px;
+       text-align: left;
+       border-bottom: 1px solid var(--border-color, #e0e0e0);
+       font-size: 0.95em;
+       vertical-align: middle;
+   }
+   
+   .requests-table th {
+       background-color: #f8f9fa;
+       color: var(--text-color-dark, #333);
+       font-weight: 600;
+       white-space: nowrap;
+   }
+   
+   .requests-table tbody tr:hover {
+       background-color: #f1f1f1;
+   }
+   
+   /* Status va Muhimlik uchun maxsus stillar */
+   .requests-table .status,
+   .requests-table .priority {
+       padding: 4px 10px;
+       border-radius: 15px;
+       font-size: 0.8em;
+       font-weight: 500;
+       white-space: nowrap;
+       text-align: center;
+       min-width: 80px; /* Minimal kenglik */
+       display: inline-block; /* Blok kabi ko'rinishi uchun */
+   }
+   
+   .requests-table .status.status-new { background-color: #3498db; color: white; } /* Yangi - Ko'k */
+   .requests-table .status.status-in-progress { background-color: #f39c12; color: white; } /* Jarayonda - Sariq */
+   .requests-table .status.status-closed { background-color: #95a5a6; color: white; } /* Yopilgan - Kulrang */
+   .requests-table .status.status-resolved { background-color: #2ecc71; color: white; } /* Hal qilingan - Yashil */
+   
+   .requests-table .priority.priority-high { background-color: #e74c3c; color: white; } /* Yuqori - Qizil */
+   .requests-table .priority.priority-medium { background-color: #f1c40f; color: white; } /* O'rta - Och sariq */
+   .requests-table .priority.priority-low { background-color: #27ae60; color: white; } /* Past - Yashilroq */
+   
+   /* Amallar tugmalari uchun stillar (agar .btn-action avval ta'riflanmagan bo'lsa) */
+   /*
+   .requests-table .actions {
+       text-align: center;
+       white-space: nowrap;
+   }
+   
+   .btn-action {
+       background: none;
+       border: none;
+       color: var(--text-color-light, #777);
+       cursor: pointer;
+       font-size: 1.1em;
+       padding: 5px 8px;
+       margin: 0 3px;
+       transition: color 0.2s ease;
+   }
+   
+   .btn-action.btn-view:hover { color: var(--main-color, #018abe); }
+   .btn-action.btn-assign:hover { color: #2ecc71; }
+   .btn-action.btn-close-ticket:hover { color: #e74c3c; }
+   */
+   
+   /* Moslashuvchanlik (So'rovlar jadvali uchun qo'shimcha) */
+   @media (max-width: 768px) {
+       .request-filters { /* .filters-and-search umumiy klassiga stil berilgan bo'lishi mumkin */
+           flex-direction: column;
+           gap: 15px;
+       }
+       .search-requests,
+       .filter-status,
+       .filter-priority {
+           max-width: none;
+           width: 100%;
+       }
+   }
+
+
+   /* ============================================= */
+/* SPECIALISTS SECTION STYLES (Mutaxassislar)   */
+/* ============================================= */
+
+.btn-add-specialist { /* .btn-add-user yoki .btn-add-product ga o'xshash */
+    background-color: var(--main-color, #018abe);
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 0.95em;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-add-specialist:hover {
+    background-color: var(--hover-main-color, #00689c);
+}
+
+.search-specialists, /* .search-users yoki .search-products ga o'xshash */
+.filter-specialization,
+.filter-status-specialist {
+    padding: 10px 15px;
+    border: 1px solid var(--border-color, #e0e0e0);
+    border-radius: 5px;
+    font-size: 0.95em;
+    min-width: 180px; /* Filtrlar uchun minimal kenglik */
+}
+
+.search-specialists {
+    flex-grow: 1;
+    max-width: 400px;
+}
+
+.search-specialists:focus,
+.filter-specialization:focus,
+.filter-status-specialist:focus {
+    outline: none;
+    border-color: var(--main-color, #018abe);
+    box-shadow: 0 0 0 2px rgba(1, 138, 190, 0.2);
+}
+
+.specialists-table-container { /* .users-table-container yoki .products-table-container ga o'xshash */
+    background-color: var(--card-bg, #fff);
+    border-radius: 8px;
+    box-shadow: var(--shadow-medium, 0 4px 10px rgba(0,0,0,0.08));
+    overflow-x: auto; /* Kichik ekranlarda gorizontal scroll */
+    margin-top: 25px;
+}
+
+/* Agar jadvallar uchun umumiy klass bo'lmasa, .specialists-table uchun stillar: */
+.specialists-table { /* .common-table klassiga stil berilgan bo'lsa, bu kerak emas */
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.specialists-table th,
+.specialists-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color, #e0e0e0);
+    font-size: 0.95em;
+    vertical-align: middle;
+}
+
+.specialists-table th {
+    background-color: #f8f9fa;
+    color: var(--text-color-dark, #333);
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.specialists-table tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+.specialist-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%; /* Yumaloq avatar */
+    object-fit: cover;
+    border: 2px solid var(--border-color, #e0e0e0);
+}
+
+/* Mutaxassis holati uchun stillar */
+.specialists-table .status {
+    padding: 4px 10px;
+    border-radius: 15px;
+    font-size: 0.8em;
+    font-weight: 500;
+    white-space: nowrap;
+    text-align: center;
+    min-width: 80px;
+    display: inline-block;
+}
+
+.specialists-table .status.status-active-specialist { background-color: #2ecc71; color: white; } /* Faol - Yashil */
+.specialists-table .status.status-busy-specialist { background-color: #f39c12; color: white; } /* Band - Sariq */
+.specialists-table .status.status-offline-specialist { background-color: #95a5a6; color: white; } /* Offline - Kulrang */
+.specialists-table .status.status-on-leave-specialist { background-color: #3498db; color: white; } /* Ta'tilda - Ko'k */
+
+
+/* Amallar tugmalari uchun stillar (agar .btn-action avval ta'riflanmagan bo'lsa) */
+/*
+.specialists-table .actions {
+    text-align: center;
+    white-space: nowrap;
+}
+.btn-action.btn-view-profile:hover { color: #54a0ff; } // Misol uchun boshqa rang
+*/
+
+/* Moslashuvchanlik (Mutaxassislar jadvali uchun qo'shimcha) */
+@media (max-width: 768px) {
+    .specialist-filters { /* .filters-and-search umumiy klassiga stil berilgan bo'lishi mumkin */
+        flex-direction: column;
+        gap: 15px;
+    }
+    .search-specialists,
+    .filter-specialization,
+    .filter-status-specialist {
+        max-width: none;
+        width: 100%;
+    }
+}

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sozlamalar – TechFix</title>
+  <!-- <link rel="stylesheet" href="style.css"/> -->
+  <style>
+    body {
+      background-color: #f4f8fb;
+      font-family: 'Segoe UI', sans-serif;
+      color: #333;
+    }
+    nav {
+      width: 220px;
+      background: #eaf4ff;
+      height: 100vh;
+      padding: 20px;
+      border-right: 1px solid #ccc;
+    }
+    nav h2 {
+      color: #007acc;
+      margin-bottom: 40px;
+      font-size: 22px;
+    }
+    nav ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    nav ul li a {
+      display: block;
+      margin: 20px 0;
+      color: #007acc;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    nav ul li a:hover {
+      color: #005a99;
+    }
+    #logout {
+      color: red;
+    }
+
+    main {
+      flex: 1;
+      padding: 40px;
+    }
+
+    .settings-card {
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 20px;
+      max-width: 400px;
+      box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+    }
+
+    .user-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .user-header div:first-child {
+      width: 60px;
+      height: 60px;
+      background: #007acc;
+      color: white;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 60px;
+      font-weight: bold;
+      font-size: 24px;
+    }
+
+    .user-info {
+      margin-left: 15px;
+    }
+
+    .user-info h3 {
+      margin: 0;
+      color: #333;
+    }
+
+    .user-info p {
+      margin: 0;
+      color: #777;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    form label {
+      margin-top: 15px;
+      margin-bottom: 5px;
+      font-weight: 500;
+    }
+
+    form input {
+      padding: 10px 12px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 15px;
+    }
+
+    form button {
+      margin-top: 25px;
+      padding: 10px 20px;
+      background: #007acc;
+      color: #fff;
+      font-weight: bold;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    form button:hover {
+      background: #005a99;
+    }
+
+    #errorMessage {
+      color: #cc0033;
+      margin-bottom: 10px;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container" style="display: flex;">
+    <!-- Sidebar -->
+    <nav>
+      <h2>TechFix</h2>
+      <ul>
+        <li><a href="dashboard.html">🏠 Asosiy sahifa</a></li>
+        <li><a href="settings.html">⚙️ Sozlamalar</a></li>
+        <li><a href="#" id="logout">🚪 Chiqish</a></li>
+      </ul>
+    </nav>
+
+    <!-- Main Section -->
+    <main>
+      <h2 style="color: #007acc;">Sozlamalar</h2>
+      <div class="settings-card">
+        <div class="user-header">
+          <div><span id="userInitial">U</span></div>
+          <div class="user-info">
+            <h3 id="userName">Foydalanuvchi</h3>
+            <p>Profilingizni yangilang</p>
+          </div>
+        </div>
+
+        <p id="errorMessage">Xatolik yuz berdi.</p>
+
+        <form id="settingsForm">
+          <label for="name">Yangi ism</label>
+          <input type="text" id="name" placeholder="Ismingizni kiriting">
+
+          <label for="password">Yangi parol</label>
+          <input type="password" id="password" placeholder="Parol kiriting">
+
+          <button type="submit">Saqlash</button>
+        </form>
+      </div>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

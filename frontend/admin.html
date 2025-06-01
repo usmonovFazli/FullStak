@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="uz">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Panel</title>
+  <link rel="stylesheet" href="./css/admin.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+  <div class="admin-panel">
+    <aside class="admin-sidebar">
+      <div class="sidebar-logo">
+        <a href="#">Dern-Support</a>
+      </div>
+      <nav class="sidebar-nav">
+        <ul>
+          <li class="nav-item active">
+            <a href="#asosiy" class="nav-link">
+              <i class="fas fa-home nav-icon"></i>
+              <span class="nav-text">Asosiy</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#foydalanuvchilar" class="nav-link">
+              <i class="fas fa-users nav-icon"></i>
+              <span class="nav-text">Foydalanuvchi</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#maxsulotlar" class="nav-link">
+              <i class="fas fa-box-open nav-icon"></i>
+              <span class="nav-text">Maxsulotlar</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#sorovlar" class="nav-link">
+              <i class="fas fa-headset nav-icon"></i>
+              <span class="nav-text">So'rovlar</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#mutaxassislar" class="nav-link">
+              <i class="fas fa-user-tie nav-icon"></i>
+              <span class="nav-text">Mutaxassis</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#topshiriqlar" class="nav-link">
+              <i class="fas fa-tasks nav-icon"></i>
+              <span class="nav-text">Topshiriqlar</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main class="admin-main-content">
+      <header class="admin-header">
+        <div class="header-left">
+          <button class="sidebar-toggle-btn" aria-label="Yon panelni ochish/yopish">
+            <i class="fas fa-bars"></i>
+          </button>
+          <div class="header-search">
+            <div class="search-filter-dropdown">
+              <button class="filter-btn">Barcha elementlar <i class="fas fa-chevron-down"></i></button>
+            </div>
+            <input type="text" placeholder="Qidirish...">
+            <button type="submit" class="search-btn"><i class="fas fa-search"></i></button>
+          </div>
+        </div>
+        <div class="header-right">
+          <div class="user-profile">
+            <img src="./assets/images/avatar-placeholder.png" alt="User Avatar" class="user-avatar">
+            <span class="user-name">Admin</span>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+        </div>
+      </header>
+
+      <section class="content-area" id="asosiy">
+        <div class="stats-cards-grid">
+          <div class="stat-card">
+            <div class="stat-card-icon users">
+              <i class="fas fa-users"></i>
+            </div>
+            <div class="stat-card-info">
+              <p>Foydalanuvchilar soni</p>
+              <span>210</span>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card-icon online-users">
+              <i class="fas fa-user-clock"></i>
+            </div>
+            <div class="stat-card-info">
+              <p>Onlayn foydalanuvchilar</p>
+              <span>90</span>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card-icon specialists">
+              <i class="fas fa-user-tie"></i>
+            </div>
+            <div class="stat-card-info">
+              <p>Mutaxassislar soni</p>
+              <span>27</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="content-area" id="foydalanuvchilar" style="display: none;">
+        <div class="content-header">
+          <h1>Foydalanuvchilar</h1>
+          <button class="btn btn-primary btn-add-user">
+            <i class="fas fa-plus"></i> Yangi foydalanuvchi qo'shish
+          </button>
+        </div>
+
+        <div class="filters-and-search">
+          <input type="text" class="form-control search-users" placeholder="Foydalanuvchilarni qidirish...">
+        </div>
+
+        <div class="users-table-container">
+          <table class="users-table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>To'liq ism</th>
+                <th>E-pochta</th>
+                <th>Roli</th>
+                <th>Holati</th>
+                <th>Amallar</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>Dildora Nodirova</td>
+                <td>Dildora@example.com</td>
+                <td><span class="role admin">Admin</span></td>
+                <td><span class="status active">Faol</span></td>
+                <td class="actions">
+                  <button class="btn-action btn-edit" aria-label="Tahrirlash"><i class="fas fa-edit"></i></button>
+                  <button class="btn-action btn-delete" aria-label="O'chirish"><i class="fas fa-trash-alt"></i></button>
+                </td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>Dildora Nodirova</td>
+                <td>DildoraNodirova@example.com</td>
+                <td><span class="role editor">Muharrir</span></td>
+                <td><span class="status active">Faol</span></td>
+                <td class="actions">
+                  <button class="btn-action btn-edit" aria-label="Tahrirlash"><i class="fas fa-edit"></i></button>
+                  <button class="btn-action btn-delete" aria-label="O'chirish"><i class="fas fa-trash-alt"></i></button>
+                </td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>Dildora Nodirova</td>
+                <td>Nodirova@example.com</td>
+                <td><span class="role user">Foydalanuvchi</span></td>
+                <td><span class="status inactive">Nofaol</span></td>
+                <td class="actions">
+                  <button class="btn-action btn-edit" aria-label="Tahrirlash"><i class="fas fa-edit"></i></button>
+                  <button class="btn-action btn-delete" aria-label="O'chirish"><i class="fas fa-trash-alt"></i></button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="pagination">
+          <button class="btn-pagination" disabled>&laquo; Avvalgi</button>
+          <button class="btn-pagination active">1</button>
+          <button class="btn-pagination">2</button>
+          <button class="btn-pagination">3</button>
+          <button class="btn-pagination">Keyingi &raquo;</button>
+        </div>
+      </section>
+      <section class="content-area" id="foydalanuvchilar" style="display: none;">
+      </section>
+
+      <section class="content-area" id="maxsulotlar" style="display: none;">
+        <div class="content-header">
+          <h1>Maxsulotlar</h1>
+          <button class="btn btn-primary btn-add-product">
+            <i class="fas fa-plus"></i> Yangi maxsulot qo'shish
+          </button>
+        </div>
+
+        <div class="filters-and-search">
+          <input type="text" class="form-control search-products" placeholder="Maxsulotlarni qidirish...">
+          <select class="form-control filter-category">
+            <option value="">Barcha kategoriyalar</option>
+            <option value="texnika">Texnika</option>
+            <option value="kiyim">Kiyim</option>
+            <option value="aksesuar">Aksesuarlar</option>
+          </select>
+        </div>
+
+        <div class="products-table-container">
+          <table class="products-table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Rasm</th>
+                <th>Nomi</th>
+                <th>Kategoriya</th>
+                <th>Narxi</th>
+                <th>Omborda (soni)</th>
+                <th>Holati</th>
+                <th>Amallar</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>101</td>
+                <td><img src="./assets/images/product-placeholder-1.jpg" alt="Maxsulot rasmi" class="product-thumbnail">
+                </td>
+                <td>Smartfon Model X</td>
+                <td>Elektronika</td>
+                <td>3,500,000 so'm</td>
+                <td>120</td>
+                <td><span class="status in-stock">Sotuvda</span></td>
+                <td class="actions">
+                  <button class="btn-action btn-edit" aria-label="Tahrirlash"><i class="fas fa-edit"></i></button>
+                  <button class="btn-action btn-delete" aria-label="O'chirish"><i class="fas fa-trash-alt"></i></button>
+                </td>
+              </tr>
+              <tr>
+                <td>102</td>
+                <td><img src="./assets/images/product-placeholder-2.jpg" alt="Maxsulot rasmi" class="product-thumbnail">
+                </td>
+                <td>Notebook Pro 15</td>
+                <td>Kompyuterlar</td>
+                <td>12,000,000 so'm</td>
+                <td>45</td>
+                <td><span class="status low-stock">Kam qolgan</span></td>
+                <td class="actions">
+                  <button class="btn-action btn-edit" aria-label="Tahrirlash"><i class="fas fa-edit"></i></button>
+                  <button class="btn-action btn-delete" aria-label="O'chirish"><i class="fas fa-trash-alt"></i></button>
+                </td>
+              </tr>
+              <tr>
+                <td>103</td>
+                <td><img src="./assets/images/product-placeholder-3.jpg" alt="Maxsulot rasmi" class="product-thumbnail">
+                </td>
+                <td>Simsiz quloqchinlar</td>
+                <td>Aksesuarlar</td>
+                <td>850,000 so'm</td>
+                <td>0</td>
+                <td><span class="status out-of-stock">Tugagan</span></td>
+                <td class="actions">
+                  <button class="btn-action btn-edit" aria-label="Tahrirlash"><i class="fas fa-edit"></i></button>
+                  <button class="btn-action btn-delete" aria-label="O'chirish"><i class="fas fa-trash-alt"></i></button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="pagination">
+          <button class="btn-pagination" disabled>&laquo; Avvalgi</button>
+          <button class="btn-pagination active">1</button>
+          <button class="btn-pagination">2</button>
+          <button class="btn-pagination">Keyingi &raquo;</button>
+        </div>
+      </section>
+
+
+      <section class="content-area" id="sorovlar" style="display: none;"> <div class="content-header">
+        <h1>So'rovlar</h1>
+        </div>
+
+    <div class="request-filters filters-and-search"> <input type="text" class="form-control search-requests" placeholder="So'rovlarni qidirish (ID, Mavzu)...">
+        <select class="form-control filter-status">
+            <option value="">Barcha holatlar</option>
+            <option value="yangi">Yangi</option>
+            <option value="jarayonda">Jarayonda</option>
+            <option value="yopilgan">Yopilgan</option>
+        </select>
+        <select class="form-control filter-priority">
+            <option value="">Barcha muhimliklar</option>
+            <option value="yuqori">Yuqori</option>
+            <option value="o'rta">O'rta</option>
+            <option value="past">Past</option>
+        </select>
+    </div>
+
+    <div class="requests-table-container"> <table class="requests-table common-table"> <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Mavzu</th>
+                    <th>Foydalanuvchi</th>
+                    <th>Holati</th>
+                    <th>Muhimligi</th>
+                    <th>Yaratilgan sana</th>
+                    <th>Amallar</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>S-001</td>
+                    <td>Parolni tiklashda muammo</td>
+                    <td>Ali Valiyev (ali@example.com)</td>
+                    <td><span class="status status-new">Yangi</span></td>
+                    <td><span class="priority priority-high">Yuqori</span></td>
+                    <td>2025-05-25 10:30</td>
+                    <td class="actions">
+                        <button class="btn-action btn-view" aria-label="Ko'rish"><i class="fas fa-eye"></i></button>
+                        <button class="btn-action btn-assign" aria-label="Biriktirish"><i class="fas fa-user-tag"></i></button>
+                        <button class="btn-action btn-close-ticket" aria-label="Yopish"><i class="fas fa-check-circle"></i></button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>S-002</td>
+                    <td>Dasturiy ta'minotda xatolik</td>
+                    <td>Zarina Karimova (zarina@example.com)</td>
+                    <td><span class="status status-in-progress">Jarayonda</span></td>
+                    <td><span class="priority priority-medium">O'rta</span></td>
+                    <td>2025-05-24 15:45</td>
+                    <td class="actions">
+                        <button class="btn-action btn-view" aria-label="Ko'rish"><i class="fas fa-eye"></i></button>
+                        <button class="btn-action btn-assign" aria-label="Biriktirish"><i class="fas fa-user-tag"></i></button>
+                        <button class="btn-action btn-close-ticket" aria-label="Yopish"><i class="fas fa-check-circle"></i></button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>S-003</td>
+                    <td>Tarmoq ulanishida nosozlik</td>
+                    <td>Botir Ergashev (botir@example.com)</td>
+                    <td><span class="status status-closed">Yopilgan</span></td>
+                    <td><span class="priority priority-low">Past</span></td>
+                    <td>2025-05-23 09:12</td>
+                    <td class="actions">
+                        <button class="btn-action btn-view" aria-label="Ko'rish"><i class="fas fa-eye"></i></button>
+                    </td>
+                </tr>
+                </tbody>
+        </table>
+    </div>
+
+    <div class="pagination"> <button class="btn-pagination" disabled>&laquo; Avvalgi</button>
+        <button class="btn-pagination active">1</button>
+        <button class="btn-pagination">2</button>
+        <button class="btn-pagination">Keyingi &raquo;</button>
+    </div>
+</section>
+
+<section class="content-area" id="mutaxassislar" style="display: none;"> <div class="content-header">
+  <h1>Mutaxassislar</h1>
+  <button class="btn btn-primary btn-add-specialist">
+      <i class="fas fa-user-plus"></i> Yangi mutaxassis qo'shish
+  </button>
+</div>
+
+<div class="specialist-filters filters-and-search"> <input type="text" class="form-control search-specialists" placeholder="Mutaxassislarni qidirish (Ism, Mutaxassislik)...">
+  <select class="form-control filter-specialization">
+      <option value="">Barcha mutaxassisliklar</option>
+      <option value="dasturchi">Dasturchi</option>
+      <option value="dizayner">Dizayner</option>
+      <option value="texnik">Texnik yordam</option>
+      <option value="tarmoq">Tarmoq administratori</option>
+  </select>
+   <select class="form-control filter-status-specialist">
+      <option value="">Barcha holatlar</option>
+      <option value="faol">Faol</option>
+      <option value="band">Band</option>
+      <option value="offline">Offline</option>
+  </select>
+</div>
+
+<div class="specialists-table-container">
+  <table class="specialists-table common-table"> <thead>
+          <tr>
+              <th>ID</th>
+              <th>Avatar</th>
+              <th>To'liq ism</th>
+              <th>Mutaxassisligi</th>
+              <th>E-pochta</th>
+              <th>Telefon</th>
+              <th>Holati</th>
+              <th>Amallar</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr>
+              <td>M-01</td>
+              <td><img src="./assets/images/avatar-1.png" alt="Mutaxassis Avatari" class="specialist-avatar"></td>
+              <td>Akmal Rustamov</td>
+              <td>Dasturchi (Frontend)</td>
+              <td>akmal.r@example.com</td>
+              <td>+998 90 123 45 67</td>
+              <td><span class="status status-active-specialist">Faol</span></td>
+              <td class="actions">
+                  <button class="btn-action btn-view-profile" aria-label="Profilni ko'rish"><i class="fas fa-id-card"></i></button>
+                  <button class="btn-action btn-edit" aria-label="Tahrirlash"><i class="fas fa-edit"></i></button>
+                  <button class="btn-action btn-delete" aria-label="O'chirish"><i class="fas fa-trash-alt"></i></button>
+              </td>
+          </tr>
+          <tr>
+              <td>M-02</td>
+              <td><img src="./assets/images/avatar-2.png" alt="Mutaxassis Avatari" class="specialist-avatar"></td>
+              <td>Laylo Qosimova</td>
+              <td>Texnik yordam</td>
+              <td>laylo.q@example.com</td>
+              <td>+998 93 987 65 43</td>
+              <td><span class="status status-busy-specialist">Band</span></td>
+              <td class="actions">
+                  <button class="btn-action btn-view-profile" aria-label="Profilni ko'rish"><i class="fas fa-id-card"></i></button>
+                  <button class="btn-action btn-edit" aria-label="Tahrirlash"><i class="fas fa-edit"></i></button>
+                  <button class="btn-action btn-delete" aria-label="O'chirish"><i class="fas fa-trash-alt"></i></button>
+              </td>
+          </tr>
+           <tr>
+              <td>M-03</td>
+              <td><img src="./assets/images/avatar-3.png" alt="Mutaxassis Avatari" class="specialist-avatar"></td>
+              <td>Sardor Ismoilov</td>
+              <td>Tarmoq Administratori</td>
+              <td>sardor.i@example.com</td>
+              <td>+998 99 555 12 34</td>
+              <td><span class="status status-offline-specialist">Offline</span></td>
+              <td class="actions">
+                  <button class="btn-action btn-view-profile" aria-label="Profilni ko'rish"><i class="fas fa-id-card"></i></button>
+                  <button class="btn-action btn-edit" aria-label="Tahrirlash"><i class="fas fa-edit"></i></button>
+                  <button class="btn-action btn-delete" aria-label="O'chirish"><i class="fas fa-trash-alt"></i></button>
+              </td>
+          </tr>
+          </tbody>
+  </table>
+</div>
+
+<div class="pagination"> <button class="btn-pagination" disabled>&laquo; Avvalgi</button>
+  <button class="btn-pagination active">1</button>
+  <button class="btn-pagination">Keyingi &raquo;</button>
+</div>
+</section>
+
+
+    </main>
+
+
+  </div>
+
+  <script>
+    // Sidebar navigatsiyasi uchun oddiy "active" klass almashtirish (tab bar effekti)
+    const navLinks = document.querySelectorAll('.sidebar-nav .nav-link');
+    navLinks.forEach(link => {
+      link.addEventListener('click', function (e) {
+        // Haqiqiy sahifa o'zgarishini oldini olish agar href="#" bo'lsa
+        // e.preventDefault(); 
+
+        navLinks.forEach(l => l.parentElement.classList.remove('active'));
+        this.parentElement.classList.add('active');
+
+        // Bu yerga kontentni almashtirish uchun JavaScript kodi qo'shilishi mumkin
+        // Masalan, mos keladigan ID ga ega sectionni ko'rsatish
+        const targetId = this.getAttribute('href');
+        document.querySelectorAll('.content-area').forEach(area => {
+          area.style.display = 'none'; // Hamma kontentni yashirish
+        });
+        if (document.querySelector(targetId)) {
+          document.querySelector(targetId).style.display = 'block'; // Kerakli kontentni ko'rsatish
+        }
+      });
+    });
+
+    // Sidebar ochish/yopish (mobil uchun)
+    const sidebarToggleBtn = document.querySelector('.sidebar-toggle-btn');
+    const adminSidebar = document.querySelector('.admin-sidebar');
+    if (sidebarToggleBtn && adminSidebar) {
+      sidebarToggleBtn.addEventListener('click', () => {
+        adminSidebar.classList.toggle('collapsed');
+        document.querySelector('.admin-main-content').classList.toggle('sidebar-collapsed');
+      });
+    }
+
+    // Boshlang'ich holatda faqat aktiv tab kontentini ko'rsatish
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.content-area').forEach(area => {
+        if (!area.matches('#asosiy')) { // Boshlang'ich aktiv tab IDsi
+          area.style.display = 'none';
+        }
+      });
+    });
+
+  </script>
+</body>
+
+</html>

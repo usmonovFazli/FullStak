@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ro‘yxatdan o‘tish – TechFix</title>
+  <style>
+    /* Цветовая палитра TechFix/Dern-Support */
+    :root {
+      --primary-blue: #009efb;
+      --light-gray:  #f5f7fa;
+      --white:       #ffffff;
+      --text-dark:   #2e3a59;
+      --text-muted:  #667085;
+      --input-border:#d0d5dd;
+      --error-red:   #ff4d4d;
+      --success-green:#27ae60;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: var(--light-gray);
+      font-family: "Segoe UI", Tahoma, Arial, sans-serif;
+      color: var(--text-dark);
+    }
+    .login-container {
+      background-color: var(--white);
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 12px rgba(30, 40, 64, 0.05);
+      width: 100%;
+      max-width: 380px;
+    }
+    .login-form h2 {
+      font-size: 1.625rem;
+      margin-bottom: 1rem;
+      color: var(--primary-blue);
+    }
+    #errorMessage {
+      margin-bottom: 1rem;
+      font-size: 0.875rem;
+      color: var(--error-red);
+      display: none;
+    }
+    .login-form input[type="text"],
+    .login-form input[type="email"],
+    .login-form input[type="password"] {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      margin-bottom: 1rem;
+      border: 1px solid var(--input-border);
+      border-radius: 4px;
+      font-size: 1rem;
+      color: var(--text-dark);
+      transition: border-color 0.2s ease;
+    }
+    .login-form input:focus {
+      outline: none;
+      border-color: var(--primary-blue);
+      box-shadow: 0 0 0 2px rgba(0, 158, 251, 0.2);
+    }
+    #passwordRequirements {
+      margin-bottom: 1rem;
+      font-size: 0.875rem;
+      list-style: none;
+    }
+    .error-message {
+      margin: 0.25rem 0;
+      display: flex;
+      align-items: center;
+      color: var(--text-muted);
+    }
+    .error-message.invalid::before {
+      content: "✕";
+      display: inline-block;
+      width: 1rem;
+      color: var(--error-red);
+      margin-right: 0.5rem;
+    }
+    .error-message.valid {
+      color: var(--success-green);
+    }
+    .error-message.valid::before {
+      content: "✓";
+      display: inline-block;
+      width: 1rem;
+      color: var(--success-green);
+      margin-right: 0.5rem;
+    }
+    #allValidMessage {
+      font-size: 0.875rem;
+      color: var(--success-green);
+      margin-bottom: 1rem;
+      display: none;
+    }
+    .login-form button[type="submit"] {
+      width: 100%;
+      padding: 0.75rem;
+      background-color: var(--primary-blue);
+      color: var(--white);
+      border: none;
+      border-radius: 4px;
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background-color 0.2s ease, box-shadow 0.2s ease;
+    }
+    .login-form button[type="submit"]:hover {
+      background-color: #0084e0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
+    .login-form button[type="submit"]:active {
+      background-color: #0070c4;
+    }
+    .login-form .options {
+      margin-top: 1rem;
+      text-align: center;
+      font-size: 0.875rem;
+      color: var(--text-muted);
+    }
+    .login-form .options a {
+      color: var(--primary-blue);
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .login-form .options a:hover {
+      text-decoration: underline;
+    }
+    @media (max-width: 480px) {
+      .login-container {
+        margin: 1rem;
+        padding: 1.5rem;
+      }
+      .login-form h2 {
+        font-size: 1.375rem;
+      }
+      .login-form input,
+      .login-form button[type="submit"] {
+        padding: 0.65rem 0.9rem;
+        font-size: 0.9375rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="login">
+    <div class="login-container">
+      <form class="login-form" id="signupForm">
+        <h2>📝 Ro‘yxatdan o‘tish</h2>
+        <p id="errorMessage">Iltimos, barcha maydonlarni to‘ldiring va talabga javob beradigan parol kiriting.</p>
+        <input type="text" placeholder="Ism" id="name" required>
+        <input type="email" placeholder="Email" id="email" required>
+        <input type="password" placeholder="Parol" id="password" required>
+        <div id="passwordRequirements">
+          <p id="length" class="error-message invalid">Kamida 8 ta belgi</p>
+          <p id="uppercase" class="error-message invalid">Kamida 1 ta katta harf</p>
+          <p id="special" class="error-message invalid">Kamida 1 ta belgi (!@#...)</p>
+          <p id="number" class="error-message invalid">Kamida 1 ta raqam</p>
+        </div>
+        <p id="allValidMessage">✅ Parol barcha talabga javob beradi!</p>
+        <button type="submit">Ro‘yxatdan o‘tish</button>
+        <p class="options">Allaqachon hisobingiz bor? <a href="login.html">Kirish</a></p>
+      </form>
+    </div>
+  </div>
+  <script src="./app.js"></script>
+</body>
+</html>

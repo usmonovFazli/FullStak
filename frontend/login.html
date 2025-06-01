@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kirish – TechFix</title>
+  <style>
+    /* Цветовая палитра, основанная на теме TechFix/Dern-Support */
+    :root {
+      --primary-blue: #009efb;
+      --dark-blue:   #1f2a40;
+      --light-gray:  #f5f7fa;
+      --white:       #ffffff;
+      --text-dark:   #2e3a59;
+      --text-muted:  #667085;
+      --input-border:#d0d5dd;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: var(--light-gray);
+      font-family: "Segoe UI", Tahoma, Arial, sans-serif;
+      color: var(--text-dark);
+    }
+    .login-container {
+      background-color: var(--white);
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 12px rgba(30, 40, 64, 0.05);
+      width: 100%;
+      max-width: 380px;
+    }
+    .login-form h2 {
+      font-size: 1.625rem;
+      margin-bottom: 0.5rem;
+      color: var(--primary-blue);
+    }
+    .login-form .subtitle {
+      margin-bottom: 1.5rem;
+      font-size: 1rem;
+      color: var(--text-muted);
+    }
+    #errorMessage {
+      margin-bottom: 1rem;
+      font-size: 0.875rem;
+      color: #ff4d4d;
+      display: none;
+    }
+    .login-form input[type="email"],
+    .login-form input[type="password"] {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      margin-bottom: 1rem;
+      border: 1px solid var(--input-border);
+      border-radius: 4px;
+      font-size: 1rem;
+      color: var(--text-dark);
+      transition: border-color 0.2s ease;
+    }
+    .login-form input[type="email"]:focus,
+    .login-form input[type="password"]:focus {
+      outline: none;
+      border-color: var(--primary-blue);
+      box-shadow: 0 0 0 2px rgba(0, 158, 251, 0.2);
+    }
+    .login-form button[type="submit"] {
+      width: 100%;
+      padding: 0.75rem;
+      background-color: var(--primary-blue);
+      color: var(--white);
+      border: none;
+      border-radius: 4px;
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background-color 0.2s ease, box-shadow 0.2s ease;
+    }
+    .login-form button[type="submit"]:hover {
+      background-color: #0084e0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
+    .login-form button[type="submit"]:active {
+      background-color: #0070c4;
+    }
+    .login-form .options {
+      margin-top: 1rem;
+      text-align: center;
+    }
+    .login-form .options p {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+    }
+    .login-form .options a {
+      color: var(--primary-blue);
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .login-form .options a:hover {
+      text-decoration: underline;
+    }
+    @media (max-width: 480px) {
+      .login-container {
+        margin: 1rem;
+        padding: 1.5rem;
+      }
+      .login-form h2 {
+        font-size: 1.375rem;
+      }
+      .login-form input[type="email"],
+      .login-form input[type="password"] {
+        padding: 0.65rem 0.9rem;
+        font-size: 0.9375rem;
+      }
+      .login-form button[type="submit"] {
+        padding: 0.65rem;
+        font-size: 0.9375rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="login">
+    <div class="login-container">
+      <form class="login-form" id="loginForm">
+        <h2>👋 Kirish</h2>
+        <p class="subtitle">Hisobingizga kiring</p>
+        <p id="errorMessage" style="color: #ff4d4d; display: none;"></p>
+        <input type="email" placeholder="Email manzilingiz" required>
+        <input type="password" placeholder="Parol" required>
+        <button type="submit">Kirish</button>
+        <div class="options">
+          <p>Hisob yo‘qmi? <a href="./signup.html">Ro‘yxatdan o‘tish</a></p>
+        </div>
+      </form>
+    </div>
+  </div>
+  <script src="./app.js"></script>
+</body>
+</html>

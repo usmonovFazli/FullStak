@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="uz">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TechFix</title>
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+  <nav class="navbar">
+    <div class="container">
+      <div class="nav__container">
+        <div class="nav__logo">
+          <p><span>Tech</span>Fix</p>
+        </div>
+        <div class="nav__toggle" id="navToggle">☰</div>
+        <ul class="nav__menu" id="navMenu">
+          <li><a href="/">Bosh sahifa</a></li>
+          <li><a href="#services">Xizmatlarimiz</a></li>
+          <li><a href="#faq">Savollar</a></li>
+          <li><a href="#support">So'rovlar</a></li>
+          <li><a href="#contact">Aloqa</a></li>
+          <li><a href="./login.html">Kirish</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="container">
+    <main>
+      <div class="main__container">
+        <div class="main__content__left">
+          <h1>Texnik Yordam</h1>
+          <p>Soume Computing kompaniyasining Dern-Support loyihasi uchun to‘liq stekli web-ilovani ishlab chiqing.</p>
+          <button><a href="./login.html">Boshlash</a></button>
+        </div>
+        <div class="main__content__right">
+          <img src="main-robo.png" alt="Support Robot">
+        </div>
+      </div>
+    </main>
+
+    <section id="services">
+      <h2 class="section-title">Xizmatlarimiz</h2>
+      <div class="service-grid">
+        <div class="service-card">
+          <h3>💻 Kompyuter ta’miri</h3>
+          <p>Apparat muammolarini bartaraf qilamiz.</p>
+        </div>
+        <div class="service-card">
+          <h3>🧠 Dasturiy muammolar</h3>
+          <p>Dasturiy nosozlik va viruslarni tozalaymiz.</p>
+        </div>
+        <div class="service-card">
+          <h3>🌐 Onlayn yordam</h3>
+          <p>Masofadan ulanish orqali yordam beramiz.</p>
+        </div>
+      </div>
+    </section>
+    <section class="faq-section" id="faq">
+      <div class="container">
+        <h2 class="faq-title">Tez tez so'raladigan savollar</h2>
+        <div class="faq-list">
+          <details class="faq-item">
+            <summary class="faq-question">
+              <span class="faq-main-content">
+                <span class="faq-number">1.</span>
+                <span class="faq-text">Xizmatlaringiz qamroviga nimalar kiradi?</span>
+              </span>
+              <span class="faq-icon"></span>
+            </summary>
+            <div class="faq-answer">
+              <p>Biz apparat (hardware) va dasturiy ta'minot (software) bo‘yicha texnik xizmat, muammo
+                aniqlash, ta'mirlash, yangilash hamda maslahat xizmatlarini taqdim etamiz.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-question">
+              <span class="faq-main-content">
+                <span class="faq-number">2.</span>
+                <span class="faq-text">Dasturiy ta'minotni yangilab bera olasizmi?</span>
+              </span>
+              <span class="faq-icon"></span>
+            </summary>
+            <div class="faq-answer">
+              <p>Iltimos, avval qurilmani o'chirib-yoqib ko'ring. Agar muammo davom etsa, biz bilan bog'laning
+                – mutaxassislarimiz sizga yordam beradi.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-question">
+              <span class="faq-main-content">
+                <span class="faq-number">3.</span>
+                <span class="faq-text">Xizmat ko‘rsatish qancha vaqt oladi?</span>
+              </span>
+              <span class="faq-icon"></span>
+            </summary>
+            <div class="faq-answer">
+              <p>Bu muammoning murakkabligiga bog‘liq. Oddiy muammolar odatda 1-2 ish kuni ichida hal
+                qilinadi.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-question">
+              <span class="faq-main-content">
+                <span class="faq-number">4.</span>
+                <span class="faq-text">Narxlar qanday belgilanadi?</span>
+              </span>
+              <span class="faq-icon"></span>
+            </summary>
+            <div class="faq-answer">
+              <p>Narxlar xizmat turiga va muammo darajasiga qarab belgilanadi.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-question">
+              <span class="faq-main-content">
+                <span class="faq-number">5.</span>
+                <span class="faq-text">Kompyuterimda virus borligini qanday bilsam bo‘ladi?</span>
+              </span>
+              <span class="faq-icon"></span>
+            </summary>
+            <div class="faq-answer">
+              <p>Sezilarli sekinlashish, notanish dasturlar yoki reklama oynalari virus alomatlari bo‘lishi
+                mumkin. Biz antivirus tekshiruvini o‘tkazib beramiz.</p>
+            </div>
+          </details>
+
+        </div>
+      </div>
+    </section>
+    <section class="support-form-section" id="support">
+      <div class="container">
+          <h2 class="main-title">Texnik yordam so'rovi</h2>
+          <form action="#" method="POST">
+              <div class="form-wrapper">
+                  <div class="problem-types-column">
+                      <h3>Qanday muammo?</h3>
+                      <div class="problem-options-simple"> <div class="radio-option-simple">
+                              <input type="radio" name="problem_type_simple" id="problem_software_simple" value="dasturiy_yechimlar" checked>
+                              <label for="problem_software_simple">Dasturiy yechimlar</label>
+                          </div>
+                          <div class="radio-option-simple">
+                              <input type="radio" name="problem_type_simple" id="problem_hardware_simple" value="uskuna_qollab_quvvatlash">
+                              <label for="problem_hardware_simple">Uskuna qo‘llab-quvvatlash</label>
+                          </div>
+                          <div class="radio-option-simple">
+                              <input type="radio" name="problem_type_simple" id="problem_network_simple" value="tarmoq_sozlamasi">
+                              <label for="problem_network_simple">Tarmoq sozlamasi</label>
+                          </div>
+                          <div class="radio-option-simple">
+                              <input type="radio" name="problem_type_simple" id="problem_server_simple" value="server_boshqaruvi">
+                              <label for="problem_server_simple">Server boshqaruvi</label>
+                          </div>
+                          <div class="radio-option-simple">
+                              <input type="radio" name="problem_type_simple" id="problem_security_simple" value="xavfsizlik_xizmati">
+                              <label for="problem_security_simple">Xavfsizlik xizmati</label>
+                          </div>
+                          <div class="radio-option-simple">
+                              <input type="radio" name="problem_type_simple" id="problem_recovery_simple" value="malumot_qayta_tiklash">
+                              <label for="problem_recovery_simple">Ma'lumotlarni qayta tiklash</label>
+                          </div>
+                      </div>
+                  </div>
+  
+                  <div class="form-fields-column"> <div class="form-group">
+                          <label for="phone_number" class="form-label">Telefon raqam</label>
+                          <input type="tel" id="phone_number" name="phone_number" class="form-input"
+                                 placeholder="+998 99 999 99 99" required>
+                      </div>
+                      <div class="form-group"> <label for="message" class="form-label">Xabar</label>
+                          <textarea id="message" name="message" class="form-textarea" rows="8"
+                                    placeholder="Manda....." required></textarea>
+                      </div>
+                      <div class="form-group form-submit-group">
+                          <button type="submit" class="submit-btn">Yuborish</button>
+                      </div>
+                  </div>
+              </div>
+          </form>
+      </div>
+  </section>
+  <section id="why" class="why-us-section">
+    <div class="container">
+        <h2 class="section-title">Nega bizni tanlaysiz?</h2>
+        <ul class="why-list">
+            <li class="why-list-item">
+                <span class="why-icon"><i class="fas fa-bolt"></i></span>
+                <span class="why-text">Tezkor xizmat</span>
+            </li>
+            <li class="why-list-item">
+                <span class="why-icon"><i class="fas fa-user-tie"></i></span>
+                <span class="why-text">Tajribali mutaxassislar</span>
+            </li>
+            <li class="why-list-item">
+                <span class="why-icon"><i class="fas fa-clipboard-check"></i></span>
+                <span class="why-text">Oson buyurtma va kuzatuv</span>
+            </li>
+            <li class="why-list-item">
+                <span class="why-icon"><i class="fas fa-laptop-code"></i></span>
+                <span class="why-text">Mijozlarga qulay interfeys</span>
+            </li>
+        </ul>
+    </div>
+</section>
+
+    <section id="contact">
+      <h2 class="section-title">Biz bilan bog’laning</h2>
+      <form>
+        <input type="text" placeholder="Ismingiz" required>
+        <input type="email" placeholder="Email manzilingiz" required>
+        <textarea rows="5" placeholder="Xabaringiz" required></textarea>
+        <button type="submit">Yuborish</button>
+      </form>
+    </section>
+  </div>
+
+  <footer>
+    <p>© 2025 TechFix | Barcha huquqlar himoyalangan</p>
+    <div class="socials">
+      <a href="#">Telegram</a>
+      <a href="#">Instagram</a>
+      <a href="#">Email</a>
+    </div>
+  </footer>
+
+  <script src="./app.js"></script>
+</body>
+
+</html>
